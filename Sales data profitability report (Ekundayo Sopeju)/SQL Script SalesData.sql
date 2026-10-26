@@ -1,0 +1,20 @@
+SELECT * FROM dbo.SalesData$;
+select SUM(quantity * [unitprice]) AS Totalsales FROM SalesData$;
+SELECT TOP 5 OrderID, customername, product, quantity, [unitprice], quantity * [unitprice] AS Totalsales FROM SalesData$ ORDER BY Totalsales desc;
+SELECT Orderid, customername, product, quantity, [unitprice], quantity * [unitprice] AS Totalsales FROM SalesData$ WHERE Quantity * [UNITPRICE] > 1000 order by tOTALSALES DESC
+SELECT COUNT(Customername) AS Totalcustomers FROM SalesData$;
+SELECT AVG(Quantity * [unitprice]) AS Averagesales FROM SalesData$;
+SELECT Category, sum(quantity * [unitprice]) AS Totalsales FROM SalesData$ GROUP BY Category ORDER BY Totalsales desc;
+SELECT City, sum(quantity * [unitprice]) AS Totalsales FROM SalesData$ GROUP BY City ORDER BY Totalsales desc;
+SELECT TOP 1 Product, SUM(Quantity * [unitprice]) AS Totalsales FROM SalesData$ GROUP BY Product ORDER BY Totalsales DESC;
+SELECT TOP 1 Product, SUM(Quantity * [unitprice]) AS Totalsales FROM SalesData$ GROUP BY Product ORDER BY Totalsales ASC;
+SELECT * FROM SalesData$ WHERE Gender = 'female';
+SELECT Orderid, customername, product, Quantity, [unitprice], Quantity * [Unitprice] AS Totalsales FROM SalesData$ ORDER BY Totalsales desc;
+SELECT Product, SUM(Quantity * [Unitprice]) AS Totalsales FROM SalesData$ GROUP BY pRODUCT ORDER BY Totalsales desc;
+SELECT category, SUM(Quantity * [Unitprice]) AS Totalsales FROM SalesData$ GROUP BY category ORDER BY Totalsales desc;
+SELECT City, SUM(Quantity * [Unitprice]) AS Totalsales FROM SalesData$ GROUP BY city ORDER BY Totalsales desc;
+SELECT Category, SUM(quantity * [unitprice]) AS Totalsales FROM SalesData$ GROUP BY Category HAVING SUM(Quantity * [unitprice]) >500 ORDER BY Totalsales DESC;
+SELECT Product, SUM(Quantity * [unitprice]) AS Revenue FROM SalesData$ GROUP BY Product ORDER BY Revenue desc;
+EXEC sp_renam 'dbo.salesdata$', 'SalesData';
+SELECT * FROM dbo.SalesData;
+SELECT * FROM dbo.SalesData$;
